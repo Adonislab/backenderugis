@@ -1,0 +1,36 @@
+# Fichiers générés automatiquement
+__pycache__/
+.pytest_cache/
+.coverage
+.vscode/
+.idea/
+*.pyc
+*.pyo
+*.pyd
+
+# Fichiers de configuration personnels
+.env
+*.env
+*.sqlite3
+*.log
+*.swp
+
+# Dossiers de dépendances
+node_modules/
+venv/
+.venv/
+
+# Fichiers de compilation ou de build
+static/
+media/
+
+# Fichiers sensibles
+*.key
+*.pem
+*.cer
+*.crt
+*.csr
+
+# Fichiers de sauvegarde
+*.bak
+*.swp
