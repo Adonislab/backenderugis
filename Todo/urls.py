@@ -17,10 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-
+from .views import index
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("api/", include("app.urls")),
+    path("", index),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
