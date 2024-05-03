@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 from datetime import timedelta
+import dj_database_url
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -79,7 +81,15 @@ WSGI_APPLICATION = 'Todo.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {
+
+
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    }
+else:
+    print("Postgres URL not found, using interne")
+    DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'erugis',
@@ -89,7 +99,6 @@ DATABASES = {
         'PORT': '5432',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
